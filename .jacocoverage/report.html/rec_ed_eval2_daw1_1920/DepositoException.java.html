@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DepositoException.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;REC_ED_EVAL2_DAW1_1920&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">rec_ed_eval2_daw1_1920</a> &gt; <span class="el_source">DepositoException.java</span></div><h1>DepositoException.java</h1><pre class="source lang-java linenums">package rec_ed_eval2_daw1_1920;
+
+/**
+ *
+ * @author Mario
+ */
+public class DepositoException extends Exception {
+
+    /**
+     * *
+     * DepositoException es el constructor
+     *
+     * @param msj mensaje de exception
+     */
+    public DepositoException(String msj) {
+<span class="fc" id="L16">        super(msj);</span>
+<span class="fc" id="L17">    }</span>
+
+    /**
+     *
+     * @param d Deposito
+     * @return &lt;code&gt;true&lt;/code&gt; si el deposito es valido &lt;code&gt;false&lt;/code&gt; si
+     * no
+     */
+    public static boolean validarDeposito(Deposito d) {
+<span class="pc bpc" id="L26" title="2 of 6 branches missed.">        return validarMaximo(d.getMaximo()) &amp;&amp; validarNivelActual(d.getNivelActual()) &amp;&amp; (d.getNivelActual() &lt;= d.getMaximo());</span>
+    }
+
+    /**
+     *
+     * @param maximo
+     * @return &lt;code&gt;true&lt;/code&gt; si el maximo es valido &lt;code&gt;false&lt;/code&gt; si no
+     */
+    public static boolean validarMaximo(double maximo) {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        return maximo &gt; 0.0;</span>
+    }
+
+    /**
+     *
+     * @param nivelActual
+     * @return &lt;code&gt;true&lt;/code&gt; si el nivel actual es valido &lt;code&gt;false&lt;/code&gt;
+     * si no
+     */
+    public static boolean validarNivelActual(double nivelActual) {
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        return nivelActual &gt;= 0.0;</span>
+    }
+
+    /**
+     *
+     * @param nombre
+     * @return &lt;code&gt;true&lt;/code&gt; si el nombre es valido &lt;code&gt;false&lt;/code&gt; si no
+     */
+    public static boolean validarNombre(String nombre) {
+<span class="pc bpc" id="L54" title="1 of 2 branches missed.">        if (nombre != null) {</span>
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">            if (nombre.length() &gt; 20) {</span>
+<span class="nc" id="L56">                return false;</span>
+            }
+<span class="fc" id="L58">            return true;</span>
+        }
+<span class="nc" id="L60">        return false;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

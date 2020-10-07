@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Deposito.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;REC_ED_EVAL2_DAW1_1920&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">rec_ed_eval2_daw1_1920</a> &gt; <span class="el_source">Deposito.java</span></div><h1>Deposito.java</h1><pre class="source lang-java linenums">package rec_ed_eval2_daw1_1920;
+
+/**
+ * Esta clase sirve comparar el nivel de los depósitos.
+ *
+ * @author Mario
+ */
+public class Deposito {
+
+    private double maximo;
+    private double nivelActual;
+    private String nombre;
+       
+<span class="fc" id="L14">    public Deposito(Deposito d) {</span>
+<span class="pc bpc" id="L15" title="1 of 2 branches missed.">        if (DepositoException.validarDeposito(d)) {</span>
+<span class="fc" id="L16">            this.maximo = d.getMaximo();</span>
+<span class="fc" id="L17">            this.nivelActual = d.getNivelActual();</span>
+<span class="fc" id="L18">            this.nombre = d.getNombre();</span>
+        }
+<span class="fc" id="L20">    }</span>
+
+    /**
+     * *
+     * Deposito es el constructor
+     *
+     * @param nombre nombre para el deposito. NO puede ser vacio ni superar los
+     * 20 caracteres.
+     * @param maximo nivel máximo del deposito. NO puede ser menor o igual a 0 y
+     * ha de ser de tipo double
+     * @param nivelActual actual del deposito. NO puede ser menor a 0 y ha de ser de
+     * tipo double
+     * @throws DepositoException si el deposito NO es válido
+     */
+<span class="fc" id="L34">    public Deposito(String nombre, double maximo, double nivelActual) throws DepositoException {</span>
+        
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        if (DepositoException.validarNombre(nombre)) {</span>
+<span class="fc" id="L37">            this.nombre = nombre;</span>
+        } else {
+<span class="nc" id="L39">            throw new DepositoException(&quot;El valor para el nombre NO puede ser vacio ni superar los 20 caracteres&quot;);</span>
+        }
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (DepositoException.validarMaximo(maximo)) {</span>
+<span class="fc" id="L42">            this.maximo = maximo;</span>
+        } else {
+<span class="fc" id="L44">            throw new DepositoException(&quot;El valor para el maximo del deposito debe ser &gt; 0.0&quot;);</span>
+        }
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if (DepositoException.validarNivelActual(nivelActual)) {</span>
+<span class="fc" id="L47">            this.nivelActual = nivelActual;</span>
+        } else {
+<span class="fc" id="L49">            throw new DepositoException(&quot;El valor para el nivel actual del deposito debe ser &gt;= 0.0&quot;);</span>
+        }
+
+<span class="fc" id="L52">    }</span>
+
+    /**
+     * getMaximo()
+     *
+     * @return Devuelve el nivel máximo del depósito
+     */
+    public double getMaximo() {
+<span class="fc" id="L60">        return maximo;</span>
+    }
+
+    public void setMaximo(double maximo) {
+<span class="nc" id="L64">        this.maximo = maximo;</span>
+<span class="nc" id="L65">    }</span>
+
+    /**
+     * getNivelActual()
+     *
+     * @return Devuelve el nivel actual del depósito
+     */
+    public double getNivelActual() {
+<span class="fc" id="L73">        return nivelActual;</span>
+    }
+
+    public void setNivelActual(double nivelActual) {
+<span class="nc" id="L77">        this.nivelActual = nivelActual;</span>
+<span class="nc" id="L78">    }</span>
+
+    /**
+     * getNombre()
+     *
+     * @return Devuelve el nombre del depósito
+     */
+    public String getNombre() {
+<span class="fc" id="L86">        return nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="nc" id="L90">        this.nombre = nombre;</span>
+<span class="nc" id="L91">    }</span>
+
+    /**
+     * estaVacio()
+     *
+     * @return 	&lt;code&gt;true&lt;/code&gt; si el deposito esta vacio &lt;code&gt;false&lt;/code&gt; en
+     * otro caso.
+     */
+    public boolean estaVacio() {
+<span class="fc bfc" id="L100" title="All 2 branches covered.">        return nivelActual == 0;</span>
+    }
+
+    /**
+     * estaLleno()
+     *
+     * @return 	&lt;code&gt;true&lt;/code&gt; si el deposito está lleno &lt;code&gt;false&lt;/code&gt;
+     * otro caso.
+     */
+    public boolean estaLleno() {
+<span class="fc bfc" id="L110" title="All 2 branches covered.">        return nivelActual == maximo;</span>
+    }
+
+    /**
+     * rellenar(): anyadir cantidad al deposito
+     *
+     * @param cantidad cantidad en litros anyadida al deposito
+     */
+    public void rellenar(double cantidad) {
+<span class="fc" id="L119">        nivelActual = nivelActual + cantidad;</span>
+<span class="fc" id="L120">    }</span>
+
+    /**
+     * consumir(): quitar cantidad del deposito
+     *
+     * @param cantidad cantidad en litros gastados
+     */
+    public void consumir(double cantidad) {
+<span class="fc" id="L128">        nivelActual = nivelActual - cantidad;</span>
+<span class="fc" id="L129">    }</span>
+
+    /**
+     * llenarHastaMax(): llena el deposito hasta su máximo
+     */
+    public void llenarHastaMax() {
+<span class="fc" id="L135">        nivelActual = maximo;</span>
+<span class="fc" id="L136">    }</span>
+
+    /**
+     * vaciar: vacia por completo el deposito
+     */
+    public void vaciar() {
+<span class="fc" id="L142">        nivelActual = 0;</span>
+<span class="fc" id="L143">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
