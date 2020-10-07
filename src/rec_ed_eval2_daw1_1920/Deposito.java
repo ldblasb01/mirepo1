@@ -46,7 +46,7 @@ public class Deposito {
         if (DepositoException.validarNivelActual(nivelActual)) {
             this.nivelActual = nivelActual;
         } else {
-            throw new DepositoException("El valor para el nivel actual del deposito debe ser >= 0.0");
+            throw new DepositoException("El valor para el nivel actual del depósito debe ser >= 0.0");
         }
 
     }
