@@ -76,7 +76,7 @@ public class DepositoTest {
     public void testGetNombre() {
         try {
             System.out.println("getNombre");
-            Deposito instance = new Deposito("drfj", 100.0, 0.0);
+            Deposito instance = new Deposito("drgguufj", 100.0, 0.0);
             String expResult = "deposito13fawer23";
             String result = instance.getNombre();
             assertEquals(expResult, result, 0.0);
