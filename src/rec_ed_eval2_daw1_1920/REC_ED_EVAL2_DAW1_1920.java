@@ -13,7 +13,7 @@ public class REC_ED_EVAL2_DAW1_1920 {
         Deposito combustible, deposito1 = null;
         try {
             //FuelTank(double tankMax, double tankLevel)
-            deposito1 = new Deposito("deposito1", 40.0, 0.0);
+            deposito1 = new Deposito("deposgyggfgfito1", 40.0, 0.0);
             DepositoException.validarDeposito(deposito1);
             combustible = new Deposito(deposito1);
             combustible.consumir(50.0);
